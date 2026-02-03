@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
     private BottomNavigationView bottomNavigationView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +22,12 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // CONFIGURAR ADAPTER (Lo crearemos en el siguiente paso)
-        // MainAdapter adapter = new MainAdapter(this);
-        // viewPager.setAdapter(adapter);
+        viewPager = findViewById(R.id.viewPager);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // 1. Evento al pulsar botones del menú -> Mueve el ViewPager
+        MainAdapter adapter = new MainAdapter(this);
+        viewPager.setAdapter(adapter);
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

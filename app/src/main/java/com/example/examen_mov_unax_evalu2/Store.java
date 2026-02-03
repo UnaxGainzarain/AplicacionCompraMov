@@ -8,8 +8,8 @@ public class Store extends RealmObject {
     @PrimaryKey
     private String name;
     private String address;
-    private double lat;
-    private double lon;
+    private Double lat;
+    private Double lon;
     private boolean isActive;
 
 
@@ -17,7 +17,7 @@ public class Store extends RealmObject {
 
     public Store() {} // Constructor vacío Realm
 
-    public Store(String name, String address, double lat, double lon, boolean isActive) {
+    public Store(String name, String address, Double lat, Double lon, boolean isActive) {
         this.name = name;
         this.address = address;
         this.lat = lat;
@@ -31,9 +31,9 @@ public class Store extends RealmObject {
     public void setName(String name) { this.name = name; }
     public String getAddress() { return address; }
     public void setAddress(String address) { this.address = address; }
-    public double getLat() { return lat; }
+    public Double getLat() { return lat; }
     public void setLat(double lat) { this.lat = lat; }
-    public double getLon() { return lon; }
+    public Double getLon() { return lon; }
     public void setLon(double lon) { this.lon = lon; }
     public boolean isActive() { return isActive; }
     public void setActive(boolean active) { isActive = active; }

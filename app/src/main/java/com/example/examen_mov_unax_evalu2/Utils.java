@@ -149,14 +149,12 @@ public class Utils {
 
         String uriString;
 
-        // Si hay coordenadas, usamos geo:lat,lon?q=lat,lon(nombre)
         if (store.getLat() != null && store.getLon() != null) {
             String label = store.getName() != null ? store.getName() : "Tienda";
             uriString = "geo:" + store.getLat() + "," + store.getLon()
                     + "?q=" + store.getLat() + "," + store.getLon()
                     + "(" + android.net.Uri.encode(label) + ")";
         } else {
-            // Si no hay coords, buscamos por dirección o por nombre
             String query = store.getAddress() != null ? store.getAddress() : store.getName();
             if (query == null) query = "Tienda";
 
