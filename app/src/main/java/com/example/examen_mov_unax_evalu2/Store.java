@@ -6,18 +6,19 @@ import io.realm.annotations.PrimaryKey;
 
 public class Store extends RealmObject {
     @PrimaryKey
+    private int id;
     private String name;
     private String address;
     private Double lat;
     private Double lon;
     private boolean isActive;
 
-
     private RealmList<Item> items;
 
-    public Store() {} // Constructor vacío Realm
+    public Store() {}
 
     public Store(String name, String address, Double lat, Double lon, boolean isActive) {
+        this.id = 0;
         this.name = name;
         this.address = address;
         this.lat = lat;
@@ -26,7 +27,8 @@ public class Store extends RealmObject {
         this.items = new RealmList<>();
     }
 
-    // Getters y Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
     public String getAddress() { return address; }

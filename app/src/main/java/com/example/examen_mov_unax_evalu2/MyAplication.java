@@ -9,8 +9,6 @@ public class MyAplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("shopping.realm")
@@ -23,7 +21,6 @@ public class MyAplication extends Application {
         long count = realm.where(Store.class).count();
 
         if (count == 0) {
-            // Insertar datos
             insertInitialData(realm);
         }
         realm.close();
@@ -31,9 +28,15 @@ public class MyAplication extends Application {
 
     private void insertInitialData(Realm realm) {
         List<Store> sampleStores = Utils.getSampleData();
+        realm.beginTransaction();
+        Number maxId = realm.where(Store.class).max("id");
+        int nextId = (maxId == null) ? 1 : maxId.intValue() + 1;
 
-        realm.executeTransaction(r -> {
-            r.copyToRealmOrUpdate(sampleStores);
-        });
+        for (Store store : sampleStores) {
+            store.setId(nextId);
+            realm.copyToRealm(store);
+            nextId++;
+        }
+        realm.commitTransaction();
     }
 }
