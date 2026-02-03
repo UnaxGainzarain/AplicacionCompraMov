@@ -1,4 +1,4 @@
-package com.example.examen_mov_unax_evalu2;
+package com.example.examen_mov_unax_evalu2.adapters;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -8,6 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.examen_mov_unax_evalu2.Item;
+import com.example.examen_mov_unax_evalu2.R;
+
 import java.util.List;
 import java.util.Locale;
 

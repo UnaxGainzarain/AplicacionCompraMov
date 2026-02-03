@@ -1,7 +1,6 @@
-package com.example.examen_mov_unax_evalu2;
+package com.example.examen_mov_unax_evalu2.fragments;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +13,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.examen_mov_unax_evalu2.Item;
+import com.example.examen_mov_unax_evalu2.MainActivity;
+import com.example.examen_mov_unax_evalu2.R;
+import com.example.examen_mov_unax_evalu2.Store;
+import com.example.examen_mov_unax_evalu2.adapters.SummaryAdapter;
+
 import java.util.Locale;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
-import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class ResumenFragment extends Fragment {
@@ -137,7 +141,7 @@ public class ResumenFragment extends Fragment {
         }
 
 
-        String emailBody = Utils.buildShoppingListEmailBody(activeStore, realm.copyFromRealm(cartItems));
+        String emailBody = MainActivity.Utils.buildShoppingListEmailBody(activeStore, realm.copyFromRealm(cartItems));
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain"); // Tipo MIME para email

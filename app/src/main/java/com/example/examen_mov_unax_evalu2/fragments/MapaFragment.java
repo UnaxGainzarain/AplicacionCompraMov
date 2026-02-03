@@ -1,4 +1,4 @@
-package com.example.examen_mov_unax_evalu2;
+package com.example.examen_mov_unax_evalu2.fragments;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+
+import com.example.examen_mov_unax_evalu2.R;
 
 public class MapaFragment extends Fragment implements LocationListener {
 

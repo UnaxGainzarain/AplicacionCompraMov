@@ -1,4 +1,4 @@
-package com.example.examen_mov_unax_evalu2;
+package com.example.examen_mov_unax_evalu2.fragments;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +8,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.examen_mov_unax_evalu2.Item;
+import com.example.examen_mov_unax_evalu2.adapters.ProductAdapter;
+import com.example.examen_mov_unax_evalu2.R;
+import com.example.examen_mov_unax_evalu2.Store;
+
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmList;

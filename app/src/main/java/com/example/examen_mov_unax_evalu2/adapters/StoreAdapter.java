@@ -1,4 +1,4 @@
-package com.example.examen_mov_unax_evalu2;
+package com.example.examen_mov_unax_evalu2.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.examen_mov_unax_evalu2.R;
+import com.example.examen_mov_unax_evalu2.Store;
 
 import java.util.List;
 
