@@ -14,10 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Examen_Mov_Unax_Evalu2">
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD1xm7AboyMqnuOiWcIvXA" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

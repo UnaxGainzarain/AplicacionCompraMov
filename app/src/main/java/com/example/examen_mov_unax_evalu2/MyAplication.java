@@ -2,6 +2,8 @@ package com.example.examen_mov_unax_evalu2;
 
 import android.app.Application;
 
+import com.example.examen_mov_unax_evalu2.utils.Utils;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import java.util.List;
@@ -28,7 +30,7 @@ public class MyAplication extends Application {
     }
 
     private void insertInitialData(Realm realm) {
-        List<Store> sampleStores = MainActivity.Utils.getSampleData();
+        List<Store> sampleStores = Utils.getSampleData();
         realm.beginTransaction();
         Number maxId = realm.where(Store.class).max("id");
         int nextId = (maxId == null) ? 1 : maxId.intValue() + 1;

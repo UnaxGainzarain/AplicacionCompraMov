@@ -18,6 +18,7 @@ import com.example.examen_mov_unax_evalu2.MainActivity;
 import com.example.examen_mov_unax_evalu2.R;
 import com.example.examen_mov_unax_evalu2.Store;
 import com.example.examen_mov_unax_evalu2.adapters.SummaryAdapter;
+import com.example.examen_mov_unax_evalu2.utils.Utils;
 
 import java.util.Locale;
 
@@ -140,17 +141,23 @@ public class ResumenFragment extends Fragment {
             return;
         }
 
+        String emailBody = Utils.buildShoppingListEmailBody(activeStore, realm.copyFromRealm(cartItems));
 
-        String emailBody = MainActivity.Utils.buildShoppingListEmailBody(activeStore, realm.copyFromRealm(cartItems));
-
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain"); // Tipo MIME para email
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(android.net.Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_SUBJECT, "Lista de compra: " + activeStore.getName());
         intent.putExtra(Intent.EXTRA_TEXT, emailBody);
 
-        startActivity(Intent.createChooser(intent, "Enviar lista por..."));
+        if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Intent intentGenerico = new Intent(Intent.ACTION_SEND);
+            intentGenerico.setType("text/plain");
+            intentGenerico.putExtra(Intent.EXTRA_SUBJECT, "Lista de compra: " + activeStore.getName());
+            intentGenerico.putExtra(Intent.EXTRA_TEXT, emailBody);
+            startActivity(Intent.createChooser(intentGenerico, "Enviar lista por..."));
+        }
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
